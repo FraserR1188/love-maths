@@ -39,7 +39,7 @@ function runGame(gameType) {
     let num2 = Math.floor(Math.random() * 25) + 1;
 
     //Create numbers for the division section
-
+    let num3 = num1 * num2;
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
@@ -48,7 +48,7 @@ function runGame(gameType) {
     } else if (gameType === "subtract") {
         displaySubtractQuestion(num1, num2);
     } else if (gameType === "division") {
-        displayDivisionQuestion(num1, num2);
+        displayDivisionQuestion(num3, num1);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -97,7 +97,7 @@ function calculateCorrectAnswer() {
     } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
     } else if (operator === "/") {
-        return [operand1 % operand2, "division"];
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
